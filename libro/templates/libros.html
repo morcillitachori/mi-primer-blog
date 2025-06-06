@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Libros</title>
+    <link rel="stylesheet" href="{% static 'css/libro.css' %}">
+</head>
+<body>
+    <div class="container">
+        {% for libro in libros %}
+        <div class="book-info clearfix">
+            <img src="{{ libro.imagen }}" alt="Portada de {{ libro.titulo }}" class="book-cover">
+            <div>
+                <div class="book-title">{{ libro.titulo }}</div>
+                <div class="book-author">por {{ libro.autor }}</div>
+                <div class="book-review"><strong>Reseña:</strong> {{ libro.reseña }}</div>
+                <div class="book-synopsis"><strong>Sinopsis:</strong> {{ libro.sinopsis }}</div>
+                <div class="book-genres"><span>{{ libro.paginas }} páginas</span></div>
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>
